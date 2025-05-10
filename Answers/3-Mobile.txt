@@ -1,0 +1,61 @@
+1. 
+First I will identify what kind of testings needs to be performed for both IOS and android application - Functional, Performance, Compatibility, Accessibility, Security and etc.
+After that I will comeup with the proper tools and techniques to perform above mentioned testing by deciding on Manual or Automation.
+Also If any CrossDevice, CrossPlatform related testing needed will decide on those as per the requirement.
+
+2.
+
+Web testing mainly focus on testing the Web application in the different browsers(Chrome, Firefox, Safari...) with different platforms(Windows , Linux) to make sure that the application behaves with its functionality, usability and non functional aspects as expected
+
+But Mobile app testing involves testing functionality, usability and non functional aspects in Mobile Operating Systems such as Android, IOS and etc.
+It includes cross device testing as well such as smartphones, tablets and other mobile devices. 
+
+3. 
+Appium - Opersource, supports native, hybrid, and web applications on iOS and Android platforms, also supports various programming laguages such as Java, C#, Python        	 and etc
+Espresso 
+Katalon Studio
+
+
+
+Appium test code snippet that opens the Calculator app on an Android emulator and performs a basic addition operation
+(Which I found in the internet and was able to understand what is happening behind). But I need to gain mor knowledge in this as I do not have exposure
+
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import java.net.URL;
+import java.util.concurrent.TimeUnit;
+
+
+
+public class AppiumSampleTest {
+public static void main(String[] args) {
+// Set the desired capabilities for the Android emulator
+DesiredCapabilities caps = new DesiredCapabilities();
+caps.setCapability("platformName", "Android");
+caps.setCapability("deviceName", "emulator-5554");
+caps.setCapability("appPackage", "com.android.calculator2");
+caps.setCapability("appActivity", "com.android.calculator2.Calculator"); // Initialize the Appium driver
+try {
+AppiumDriver < MobileElement > driver = new AndroidDriver < > (new URL("http://127.0.0.1:4723/"), caps); // Perform a basic addition operation
+MobileElement digit2 = driver.findElementById("com.android.calculator2:id/digit_2");
+MobileElement plusButton = driver.findElementByAccessibilityId("plus");
+MobileElement digit3 = driver.findElementById("com.android.calculator2:id/digit_3");
+MobileElement equalsButton = driver.findElementByAccessibilityId("equals");
+digit2.click();
+plusButton.click();
+digit3.click();
+equalsButton.click(); // Wait for a few seconds to observe the result
+TimeUnit.SECONDS.sleep(3); // Close the app
+driver.closeApp();
+} catch (Exception e) {
+System.out.println("An error occurred: " + e.getMessage());
+}
+}
+}
+
+Important note :-
+Which I found in the internet and was able to understand what is happening behind. But I need to gain mor knowledge in this as I do not have exposure
+
+

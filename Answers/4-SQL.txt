@@ -1,0 +1,25 @@
+1.
+Considering 2 tables as user table, order table
+
+SELECT userId, userName
+FROM user
+JOIN order on user.userId = order.userId
+GROUP by userId
+HAVING COUNT(*)>5
+
+
+2.
+SELECT *
+FROM order
+JOIN user on order.userId = user.userId
+
+
+
+3. 
+SELECT ProductId, ProductName, stock
+FROM products
+WHERE stock < 10;   	
+
+
+
+30mins
